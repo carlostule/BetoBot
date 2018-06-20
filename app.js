@@ -33,7 +33,9 @@ app.get("/webhook", function (req, res) {
 // Todos eventos de mesenger sera apturados por esta ruta
 app.post("/webhook", function (req, res) {
     // Verificar si el vento proviene del pagina asociada
-    console.log(req.body.entry[0]);
+    const webhook_events = req.body.entry[0];
+
+    console.log(webhook_events.standby);
 
     // if (req.body.object == "page") {
     //     // Si existe multiples entradas entraas
@@ -45,7 +47,7 @@ app.post("/webhook", function (req, res) {
     //             }
     //         });
     //     });
-    //     res.sendStatus(200);
+     res.sendStatus(200);
     // }
 });
 
