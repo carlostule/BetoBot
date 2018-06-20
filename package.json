@@ -1,0 +1,16 @@
+{
+  "name": "BetoBot",
+  "version": "0.0.1",
+  "description": "Chatbot asistente para Salauno usando node.js y Azure",
+  "main": "app.js",
+  "scripts":{
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app.js"
+  },
+  "author": "Carlos Tule",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "request": "^2.80.0"
+  }
+}
