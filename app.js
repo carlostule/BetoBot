@@ -35,7 +35,7 @@ app.post("/webhook", function (req, res) {
     // Verificar si el vento proviene del pagina asociada
     const webhook_events = req.body.entry[0];
 
-    console.log(webhook_events.standby);
+    console.log(JSON.stringify(webhook_events));
 
     // if (req.body.object == "page") {
     //     // Si existe multiples entradas entraas
