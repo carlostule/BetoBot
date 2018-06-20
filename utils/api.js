@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 'use strict';
-const env = require('../env'),
+const env = require('../env.env'),
       request = require('request');
 
 function call (path, payload, callback) {
