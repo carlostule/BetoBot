@@ -46,7 +46,7 @@ app.post("/webhook", function (req, res) {
       const psid = event.sender.id;
       const message = event.message.text;
 
-      if (message == 'pass_to_inbox') {
+      if (message == 'Pass to Inbox') {
 
         // quick reply to pass to Page inbox was clicked
         let page_inbox_app_id = 183425035694882;
