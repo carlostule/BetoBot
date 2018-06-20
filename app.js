@@ -17,7 +17,7 @@ const sendQuickReply = require('./utils/quick-reply'),
       env = require('./env');
 
 // webhook setup
-app.listen(process.env.PORT || env.PORT || 1337, () => console.log('webhook is listening'));
+app.listen((process.env.PORT || 5000), () => console.log('El servidor webhook esta eschando por el puerto 5000!'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -26,10 +26,17 @@ app.get("/", (req, res) => {
 });
 
 // webhook verification
-app.get('/webhook', (req, res) => {
-  if (req.query['hub.verify_token'] === env.VERIFY_TOKEN) {
-    res.send(req.query['hub.challenge']);
-  }
+app.get("/webhook", function (req, res) {
+    // Verificar la coincidendia del token
+    if (req.query["hub.verify_token"] === process.env.VERIFICATION_TOKEN) {
+        // Mensaje de exito y envio del token requerido
+        console.log("webhook verificado!");
+        res.status(200).send(req.query["hub.challenge"]);
+    } else {
+        // Mensaje de fallo
+        console.error("La verificacion ha fallado, porque los tokens no coinciden");
+        res.sendStatus(403);
+    }
 });
 
 // webhook
